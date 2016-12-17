@@ -6,8 +6,11 @@ module.exports = function account() {
     checking: '1'
   }
 
+  debugger
+
   function setAccountType () {
-    if (customerAccount.checking === 1) {
+    debugger
+    if (customerAccount.checking === '1') {
       customerAccount.type = 'checking'
     } else {
       customerAccount.type = 'savings'
@@ -23,10 +26,20 @@ module.exports = function account() {
     account.balance += deposit
   }
 
-  output['Account before opening'] = 'customerAccount'
+  output['Account before opening'] = customerAccount
 
-  openAccount(customerAccount)
+  openAccount(customerAccount, deposit)
   setAccountType()
   output['Account after opening'] = customerAccount
   return output
 }
+
+// account()
+
+//
+// Account before opening:  { balance: 0, name: 'Azat Mardan', checking: '1' }
+// New balance after signup bonus is 250
+// Account after opening:  { balance: 1250,
+//   name: 'Azat Mardan',
+//   checking: '1',
+//   type: 'checking' }
